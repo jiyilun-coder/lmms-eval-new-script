@@ -17,7 +17,7 @@ export VLLM_ASCEND_ENABLE_FUSED_MC2=1
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 
-PATCH_ROOT="/opt/tiger/lmms-eval/vllm"
+PATCH_ROOT="/opt/tiger/lmms-eval-extra/vllm"
 if [[ -d "${PATCH_ROOT}" ]]; then
 export PYTHONPATH="${PYTHONPATH:-}${PATCH_ROOT:+:${PATCH_ROOT}}"
 else
@@ -380,13 +380,13 @@ else
 start_log_stream "vllm" "${LOG_FILE}" "stderr"
   (
 cd /tmp
-# ================================================
+
 CANN_ENV="/usr/local/Ascend/ascend-toolkit/latest/set_env.sh"
 source "${CANN_ENV}"
-# ================================================
+
 export ASCEND_VISIBLE_DEVICES="${NPU_DEVICES}"
 export ASCEND_RT_VISIBLE_DEVICES="${NPU_DEVICES}"
-# 子shell继承外层PYTHONPATH，补丁自动生效
+
 EXTRA_VLLM_ARGS=()
 if [[ "${ASYNC_SCHEDULING}" == "1" || "${ASYNC_SCHEDULING,,}" == "true" ]]; then
 EXTRA_VLLM_ARGS+=(--async-scheduling)
