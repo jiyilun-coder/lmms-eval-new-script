@@ -26,7 +26,7 @@ fi
 
 export TASKS="${TASKS:-videomme_v2}"
 
-exec bash "${SCRIPT_DIR}/run_qwen3vl_vllm_eval.sh" \
+exec bash "/opt/tiger/lmms-eval-extra/examples/vllm_openai/run_qwen3vl_vllm_eval.sh" \
   --enable-prefix-caching \
   --mamba-cache-mode align \
   "$@"
