@@ -482,7 +482,7 @@ fi
 start_log_stream "eval stdout" "${EVAL_STDOUT_LOG}" "stdout"
 if ! (
 
-VENV_PATH="/opt/tiger/lmms-eval/lmms_env"
+VENV_PATH="/opt/tiger/lmms-eval-extra/lmms_env"
 source "${VENV_PATH}/bin/activate"
 
 echo "Eval shell VIRTUAL_ENV=${VIRTUAL_ENV}"
