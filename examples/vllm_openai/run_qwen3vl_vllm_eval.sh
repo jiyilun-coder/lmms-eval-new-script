@@ -108,8 +108,12 @@ VIDEO_FPS="${VIDEO_FPS:-}"
 PASS_VIDEO_URL="${PASS_VIDEO_URL:-0}"
 
 
-EPLB_ADDITIONAL_CONFIG=$(jq -n '{
-  "enable_scheduling": true,
+ADDITIONAL_CONFIG=$(jq -n '{
+  "enable_flashcomm":1,
+  "enable_fused_mc2":1,
+  "scheduler_config":{
+    "enable_balance_scheduling":true
+  }
 }')
 
 
@@ -428,7 +432,7 @@ VLLM_ARGS=(
 --mm-encoder-tp-mode 'data'
 --media-io-kwargs '{"video": {"backend": "pyav"}}'
 --compilation-config "${COMPILATION_CONFIG}"
---additional-config "${EPLB_ADDITIONAL_CONFIG}"
+--additional-config "${ADDITIONAL_CONFIG}"
 )
 VLLM_ARGS+=("${EXTRA_VLLM_ARGS[@]}")
 VLLM_ARGS+=("$@")
