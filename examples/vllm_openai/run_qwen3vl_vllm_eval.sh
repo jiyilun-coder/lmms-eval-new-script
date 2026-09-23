@@ -382,7 +382,7 @@ start_log_stream "vllm" "${LOG_FILE}" "stderr"
   (
 cd /tmp
 
-CANN_ENV="/usr/local/cann-9.1.0/set_env.sh"
+CANN_ENV="/usr/local/Ascend/cann-9.1.0/set_env.sh"
 source "${CANN_ENV}"
 
 export ASCEND_VISIBLE_DEVICES="${NPU_DEVICES}"
