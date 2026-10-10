@@ -429,6 +429,7 @@ VLLM_ARGS=(
 --mm-encoder-tp-mode 'data'
 --media-io-kwargs '{"video": {"backend": "pyav"}}'
 --compilation-config "${COMPILATION_CONFIG}"
+--expert-placement-strategy round_robin
 --additional-config "${ADDITIONAL_CONFIG}"
 )
 VLLM_ARGS+=("${EXTRA_VLLM_ARGS[@]}")
