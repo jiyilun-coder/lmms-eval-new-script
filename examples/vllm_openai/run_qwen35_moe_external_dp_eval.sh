@@ -58,7 +58,7 @@ for ((i=0;i<BACKEND_COUNT;i++)); do
 done
 
 # -------- 子脚本路径：复用原有run_qwen3vl_vllm_eval.sh，但是做改造调用方式 --------
-EVAL_SCRIPT="/opt/tiger/lmms-eval/examples/vllm_openai/run_qwen3vl_vllm_eval.sh"
+EVAL_SCRIPT="/opt/tiger/lmms-eval-extra/examples/vllm_openai/run_qwen3vl_vllm_eval.sh"
 PROXY_PY="${SCRIPT_DIR}/dp_load_balance_proxy_server.py"
 
 # 存放后台pid
